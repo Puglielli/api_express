@@ -8,8 +8,12 @@ server.use(express.json());
 
 Project.init(new Array());
 
+let countRequests = 0;
+
 function init(req, res, next) {
   req.arr = Project.getAll();
+
+  console.log('Quantidade de requisições: ', ++countRequests);
 
   next();
 }
